@@ -1,18 +1,20 @@
-int realy = 10;
+int relay = 10;
 int val;
-int sensorpin = 9;
+int sensorpin = 8;
 
 void setup() {
- pinMode (led,OUTPUT);
+ pinMode (relay,OUTPUT);
  pinMode (sensorpin,INPUT); 
- 
-} 
+  Serial.begin(9600);
+  } 
 
 void loop() {
  val= digitalRead(sensorpin);
- if (val==HIGH) {
-  digitalWrite (led, HIGH);
+    Serial.println(val);
+    if (val==HIGH) {
+  digitalWrite (relay, HIGH);
+  delay(500);
  } else {
-  digitalWrite (led, LOW);
+  digitalWrite (relay, LOW);
  }
 }
